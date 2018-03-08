@@ -31,6 +31,8 @@ class Command {
 	 * @property {ThrottlingOptions} [throttling] - Options for throttling usages of the command.
 	 * @property {boolean} [defaultHandling=true] - Whether or not the default command handling should be used.
 	 * If false, then only patterns will trigger the command.
+	 * @property {any} [commandErrorMessage] - The error message to display for a command if an invalid value is
+	 * is passed for an argument and prompting is disabled for it
 	 * @property {ArgumentInfo[]} [args] - Arguments for the command.
 	 * @property {number} [argsPromptLimit=Infinity] - Maximum number of times to prompt a user for a single argument.
 	 * Only applicable if `args` is specified.
@@ -163,6 +165,12 @@ class Command {
 		 * @type {?ThrottlingOptions}
 		 */
 		this.throttling = info.throttling || null;
+
+		/**
+		 * Error message to display for command without prompted arguments
+		 * @type {string}
+		 */
+		this.commandErrorMessage = info.commandErrorMessage || null;
 
 		/**
 		 * The argument collector for the command

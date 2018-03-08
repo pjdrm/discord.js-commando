@@ -188,7 +188,11 @@ class CommandMessage {
 			const result = await this.command.argsCollector.obtain(this, provided);
 			if(result.cancelled) {
 				if(result.prompts.length === 0) {
-					const err = new CommandFormatError(this);
+					const err = this.command.commandErrorMessage ?
+							new FriendlyError(typeof this.command.commandErrorMessage === 'function' ?
+							this.command.commandErrorMessage(this, provided) :
+							this.command.commandErrorMessage) :
+						new CommandFormatError(this);
 					return this.reply(err.message);
 				}
 				return this.reply('Cancelled command.');

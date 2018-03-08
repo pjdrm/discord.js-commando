@@ -411,6 +411,7 @@ declare module 'discord.js-commando' {
 		guildOnly?: boolean;
 		defaultHandling?: boolean;
 		throttling?: ThrottlingOptions;
+		commandErrorMessage: any;
 		args?: ArgumentInfo[];
 		argsPromptLimit?: number;
 		argsType?: string;
