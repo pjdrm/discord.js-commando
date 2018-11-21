@@ -166,7 +166,7 @@ class CommandDispatcher {
 	 * @private
 	 */
 	shouldHandleMessage(message, oldMessage) {
-		if(message.author.bot) return false;
+		if(message.author.bot) return true;
 		else if(this.client.options.selfbot && message.author.id !== this.client.user.id) return false;
 		else if(!this.client.options.selfbot && message.author.id === this.client.user.id) return false;
 
