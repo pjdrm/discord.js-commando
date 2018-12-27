@@ -169,7 +169,7 @@ class CommandMessage {
 		}
 
 		// Throttle the command
-		//const throttle = this.command.throttle(this.message.author.id);
+		const throttle = this.command.throttle(this.message.author.id);
 		//if(throttle && throttle.usages + 1 > this.command.throttling.usages) {
 		//	const remaining = (throttle.start + (this.command.throttling.duration * 1000) - Date.now()) / 1000;
 		//	this.client.emit('commandBlocked', this, 'throttling');
