@@ -169,14 +169,14 @@ class CommandMessage {
 		}
 
 		// Throttle the command
-		const throttle = this.command.throttle(this.message.author.id);
-		if(throttle && throttle.usages + 1 > this.command.throttling.usages) {
-			const remaining = (throttle.start + (this.command.throttling.duration * 1000) - Date.now()) / 1000;
-			this.client.emit('commandBlocked', this, 'throttling');
-			return this.reply(
-				`You may not use the \`${this.command.name}\` command again for another ${remaining.toFixed(1)} seconds.`
-			);
-		}
+		//const throttle = this.command.throttle(this.message.author.id);
+		//if(throttle && throttle.usages + 1 > this.command.throttling.usages) {
+		//	const remaining = (throttle.start + (this.command.throttling.duration * 1000) - Date.now()) / 1000;
+		//	this.client.emit('commandBlocked', this, 'throttling');
+		//	return this.reply(
+		//		`You may not use the \`${this.command.name}\` command again for another ${remaining.toFixed(1)} seconds.`
+		//	);
+		//}
 
 		// Figure out the command arguments
 		let args = this.patternMatches;
